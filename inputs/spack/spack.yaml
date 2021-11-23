@@ -1,0 +1,100 @@
+spack:
+  view: false
+  concretization: separately
+  specs:
+  - ascent
+  compilers:
+  - compiler:
+      spec: <system_gcc_spec>
+      paths:
+        cc:  <system_gcc> 
+        cxx: <system_gpp> 
+        f77: <system_gfortran> 
+        fc:  <system_gfortran> 
+      operating_system: <system_os>
+      modules:
+      - <system_gcc_module>
+      environment:
+        unset: []
+      extra_rpaths: []
+  packages:
+    all:
+      target: [<system_arch>]
+      providers:
+        mpi: [spectrum-mpi@10.4.0]
+        blas: [openblas]
+        lapack: [openblas]
+      compiler: [<system_gcc_spec>]
+      version: []
+      buildable: true
+    cmake:
+      buildable: false
+      externals:
+      - spec: cmake@3.21.3
+        modules:
+        - cmake/3.21.3
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+    openssl:
+      buildable: false
+      externals:
+      - spec: openssl@1.0.2
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+    spectrum-mpi:
+      version: [10.4.0]
+      buildable: false
+      externals:
+      - spec: spectrum-mpi@10.4.0
+        modules:
+        - spectrum-mpi/10.4.0.3-20210112
+      target: []
+      compiler: []
+      providers: {}
+    ascent:
+      variants: +openmp+shared~adios~mfem+fortran+test~python+serial+mpi+cuda+vtkh
+      version: [0.7.0]
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    vtk-h:
+      variants: +cuda~openmp+mpi+serial+shared
+      version: [0.7.0]
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    vtk-m:
+      variants: ~mpi+cuda~shared
+      version: [1.5.5]
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    conduit:
+      variants: ~adios~doc~doxygen+fortran+hdf5+hdf5_compat+mpi~python+shared~silo+test~zfp
+      version: [0.6.0]
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    hdf5:
+      variants: []
+      version: [1.8.22]
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    zlib:
+      variants: []
+      version: [1.2.11]
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}

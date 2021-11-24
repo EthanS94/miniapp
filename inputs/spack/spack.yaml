@@ -17,6 +17,3 @@ spack:
       environment:
         unset: []
       extra_rpaths: []
-  packages:
-    ascent:
-      variants: +openmp+shared~adios~mfem+fortran+test~python+serial+mpi+cuda+vtkh

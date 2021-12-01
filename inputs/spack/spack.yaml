@@ -1,8 +1,9 @@
 spack:
   view: false
-  concretization: separately
+  concretization: together
   specs:
   - ascent
+  - openmpi
   compilers:
   - compiler:
       spec: <system_gcc_spec>

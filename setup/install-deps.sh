@@ -110,7 +110,9 @@ if $INSTALL_ASCENT; then
         module load patchelf
     fi
 
+    # install and generate module load commands for run step
     time spack -e . install 
+    spack -e . env loads
 
     popd
 fi

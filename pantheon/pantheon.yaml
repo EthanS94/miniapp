@@ -7,7 +7,7 @@ project:
     project_website: https://e4s-project.github.io
 
 workflow:
-    workflow_name: Ascent Miniapp Workflow
+    workflow_name: Ascent Cloverleaf Workflow
     workflow_desc: Pantheon workflow designed for E4S integration
     workflow_version: 11.1.0
     workflow_cinema-db: pantheon.cdb

@@ -2,7 +2,7 @@
 
 # adding comment
 
-source ./pantheon/env.sh
+source ./pantheon/env.sh > /dev/null 2>&1
 
 echo "PTN: Establishing Pantheon workflow directory:"
 echo "     $PANTHEON_WORKFLOW_DIR"
@@ -12,7 +12,7 @@ PANTHEON_SOURCE_ROOT=$PWD
 # these settings allow you to control what gets built ... 
 BUILD_CLEAN=true
 INSTALL_SPACK=true
-USE_SPACK_CACHE=false
+USE_SPACK_CACHE=true
 INSTALL_ASCENT=true
 INSTALL_APP=false
 

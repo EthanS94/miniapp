@@ -9,7 +9,7 @@ project:
 workflow:
     workflow_name: Ascent Cloverleaf Workflow
     workflow_desc: Pantheon workflow designed for E4S integration
-    workflow_version: 11.1.0
+    workflow_version: gcc_9.3.0 
     workflow_cinema-db: pantheon.cdb
     workflow_app: cloverleaf3d
     workflow_in-situ: in-situ

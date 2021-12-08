@@ -2,7 +2,7 @@
 
 # adding comment
 
-source ./pantheon/env.sh
+source ./pantheon/env.sh > /dev/null 2>&1
 
 echo "PTN: Establishing Pantheon workflow directory:"
 echo "     $PANTHEON_WORKFLOW_DIR"
@@ -12,7 +12,7 @@ PANTHEON_SOURCE_ROOT=$PWD
 # these settings allow you to control what gets built ... 
 BUILD_CLEAN=true
 INSTALL_SPACK=true
-USE_SPACK_CACHE=false
+USE_SPACK_CACHE=true
 INSTALL_ASCENT=true
 INSTALL_APP=false
 
@@ -21,7 +21,7 @@ SPACK_COMPILER_MODULE=gcc/9.3.0
 # SPACK_COMPILER_MODULE=gcc/10.2.0
 SPACK_COMMIT=285548588f533338cc5493a7ba492f107e714794
 SPACK_NAME=e4s_pantheon
-SPACK_CACHE_URL=https://cache.e4s.io 
+SPACK_CACHE_URL=https://cache.e4s.io/pantheon
 
 # ---------------------------------------------------------------------------
 #
@@ -111,7 +111,7 @@ if $INSTALL_ASCENT; then
     fi
 
     # install and generate module load commands for run step
-    time spack -e . install 
+    time spack -e . install
     spack -e . env loads
 
     popd

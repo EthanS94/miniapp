@@ -49,7 +49,7 @@ if $BUILD_CLEAN; then
     if [ ! -d $PANTHEON_PROJECT_DIR ]; then
         mkdir $PANTHEON_PROJECT_DIR
     fi
-    mkdir $PANTHEON_WORKFLOW_DIR
+    mkdir -p $PANTHEON_WORKFLOW_DIR
     mkdir $PANTHEON_DATA_DIR
     mkdir $PANTHEON_RUN_DIR
 fi
@@ -105,7 +105,10 @@ if $INSTALL_ASCENT; then
         echo "PTN: using Spack E4S cache ..."
         echo ----------------------------------------------------------------------
 
+        # make sure correct mirror is used
+        spack mirror remove $SPACK_NAME
         spack mirror add $SPACK_NAME $SPACK_CACHE_URL
+
         spack buildcache keys -it
         module load patchelf
     fi
